@@ -1,6 +1,7 @@
-const knex = require('knex');
-const config = require('./knexfile');
-
-const db = knex(config.development);
-
-module.exports = db;
+const knex = require('knex')({
+  client: 'sqlite3',
+  connection: {
+    filename: './banco.sqlite'  // <- isso não funciona no Railway
+  },
+  useNullAsDefault: true
+});
