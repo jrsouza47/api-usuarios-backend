@@ -5,3 +5,14 @@ const knex = require('knex')({
   },
   useNullAsDefault: true
 });
+
+const db = knex({
+  client: 'pg',
+  connection: process.env.DATABASE_URL,
+  migrations: {
+    tableName: 'knex_migrations',
+  },
+  ssl: { rejectUnauthorized: false }, // importante para Railway
+});
+
+module.exports = db;
