@@ -1,7 +1,7 @@
 const knex = require('knex');
 const config = require('./knexfile');
 
-const ambiente = process.env.NODE_ENV || 'production';
+const ambiente = process.env.NODE_ENV;
 const dbConfig = config[ambiente];
 
 if (!dbConfig) {
