@@ -44,9 +44,12 @@ app.post('/usuarios', async (req, res) => {
     delete novoUsuario.senha;
 
     res.status(201).json(novoUsuario);
+    
   } catch (error) {
+    console.error('Erro ao cadastrar usuário:', error.message);
     res.status(500).send('Erro ao cadastrar usuário');
   }
+
 });
 
 app.post('/login', async (req, res) => {
